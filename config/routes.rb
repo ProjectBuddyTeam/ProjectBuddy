@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
   devise_for :members,
+             path_names: {
+                 sign_in: 'login',
+                 sign_out: 'logout',
+
+             },
              controllers: {
                  sessions: 'members/sessions',
                  registrations: 'members/registrations'
              }
+
+  root 'home/home#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
