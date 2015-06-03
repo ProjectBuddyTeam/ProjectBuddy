@@ -10,6 +10,7 @@ gem 'pg' # Use postgresql as the database for Active Record
 gem 'spring', group: [:development, :test] # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'responders', '~> 2.1.0'
 gem 'devise', '~> 3.5.1'
+gem 'omniauth-github', '~> 1.1.2'
 
 # Front-end
 

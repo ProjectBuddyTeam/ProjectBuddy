@@ -8,8 +8,11 @@ Rails.application.routes.draw do
              },
              controllers: {
                  sessions: 'members/sessions',
-                 registrations: 'members/registrations'
-             }
+                 registrations: 'members/registrations',
+                 omniauth_callbacks: 'members/omniauth_callbacks'
+             } do
+    get 'logout', :to => 'members/sessions#destroy', :as => :destroy_member_session
+  end
 
   root 'home/home#show'
 

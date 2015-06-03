@@ -1,10 +1,21 @@
-class Member::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # You should also create an action method in this controller like this:
   # def twitter
   # end
+
+  def github
+    @member = Member.from_omniauth(request.env['omniauth.auth'])
+    if @member.persisted?
+      sign_in_and_redirect @member, event: :authentication
+      set_flash_message(:notice, :success, kind: 'GitHub') if is_navigational_format?
+    else
+      session['devise.github_data'] = request.env['omniauth.auth']
+      render 'members/registrations/new', locals: { resource: @member }
+    end
+  end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth

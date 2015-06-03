@@ -26,9 +26,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'projectbuddy.io',
-      user_name:            ENV['DEV_MAIL_USERNAME'],
-      password:             ENV['DEV_MAIL_PASSWORD'],
+      domain:               'localhost:3002',
+      user_name:            ENV['MAIL_USERNAME'],
+      password:             ENV['MAIL_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true,
       openssl_verify_mode: 'none'
