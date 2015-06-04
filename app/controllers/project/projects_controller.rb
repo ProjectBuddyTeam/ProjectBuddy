@@ -1,10 +1,12 @@
 class Project::ProjectsController < ApplicationController
   before_action :set_project_project, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :json
   # GET /project/projects
   # GET /project/projects.json
   def index
     @project_projects = Project::Project.all
+    respond_with @project_projects
   end
 
   # GET /project/projects/1
@@ -15,6 +17,7 @@ class Project::ProjectsController < ApplicationController
   # GET /project/projects/new
   def new
     @project_project = Project::Project.new
+    respond_with @project_project
   end
 
   # GET /project/projects/1/edit
@@ -25,40 +28,20 @@ class Project::ProjectsController < ApplicationController
   # POST /project/projects.json
   def create
     @project_project = Project::Project.new(project_project_params)
-
-    respond_to do |format|
-      if @project_project.save
-        format.html { redirect_to @project_project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project_project }
-      else
-        format.html { render :new }
-        format.json { render json: @project_project.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with @project_project
   end
 
   # PATCH/PUT /project/projects/1
   # PATCH/PUT /project/projects/1.json
   def update
-    respond_to do |format|
-      if @project_project.update(project_project_params)
-        format.html { redirect_to @project_project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project_project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project_project.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with @project_project
   end
 
   # DELETE /project/projects/1
   # DELETE /project/projects/1.json
   def destroy
     @project_project.destroy
-    respond_to do |format|
-      format.html { redirect_to project_projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with @project_project
   end
 
   private
