@@ -8,8 +8,12 @@ p
   = @project_project.mission
 p
   strong Member:
-  = @project_project.member
+  = @project_project.member.username
+p
+  strong Tags:
+  - @project_project.tags.each do |tag|
+    = tag.name + ', '
 
-= link_to 'Edit', edit_project_path(@project_project)
+= link_to 'Edit', @project_project
 '|
-= link_to 'Back', projects_path
+= link_to 'Back', project_projects_path

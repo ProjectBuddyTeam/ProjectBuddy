@@ -34,6 +34,7 @@ class Project::ProjectsController < ApplicationController
   # PATCH/PUT /project/projects/1
   # PATCH/PUT /project/projects/1.json
   def update
+    @project_project.update(project_project_params)
     respond_with @project_project
   end
 
@@ -52,6 +53,6 @@ class Project::ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_project_params
-      params.require(:project_project).permit(:codename, :mission, :member_id)
+      params.require(:project_project).permit(:codename, :mission, :tag_list)
     end
 end

@@ -11,6 +11,7 @@ gem 'spring', group: [:development, :test] # Spring speeds up development by kee
 gem 'responders', '~> 2.1.0'
 gem 'devise', '~> 3.5.1'
 gem 'omniauth-github', '~> 1.1.2'
+gem 'acts-as-taggable-on', '~> 3.5'
 
 # Front-end
 

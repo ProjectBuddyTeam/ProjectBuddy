@@ -17,9 +17,9 @@ table
         td = project_project.mission
         td = project_project.member
         td = link_to 'Show', project_project
-        td = link_to 'Edit', edit_project_path(project_project)
+        td = link_to 'Edit', edit_project_project_path(project_project)
         td = link_to 'Destroy', project_project, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Project', new_project_path
+= link_to 'New Project', new_project_project_path

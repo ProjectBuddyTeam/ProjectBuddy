@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope module: :project do
+  scope module: :project, as: :project do
     resources :projects
   end
 
