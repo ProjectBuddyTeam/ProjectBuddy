@@ -11,8 +11,4 @@ html
     = csrf_meta_tags
   body
     == render 'shared/layouts/main_menu'
-    br
-    a href= destroy_member_session_path data-method='delete' Logout
-    br
-    = link_to 'Sign in with GitHub', member_omniauth_authorize_path(:github)
     = yield

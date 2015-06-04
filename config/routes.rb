@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :project do
+  scope module: :project do
     resources :projects
   end
 
