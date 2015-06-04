@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150604043021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "members", force: :cascade do |t|
+  create_table "identity_members", force: :cascade do |t|
     t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -38,20 +38,20 @@ ActiveRecord::Schema.define(version: 20150604043021) do
     t.string   "uid"
   end
 
-  add_index "members", ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true, using: :btree
-  add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
-  add_index "members", ["username"], name: "index_members_on_username", unique: true, using: :btree
+  add_index "identity_members", ["confirmation_token"], name: "index_identity_members_on_confirmation_token", unique: true, using: :btree
+  add_index "identity_members", ["email"], name: "index_identity_members_on_email", unique: true, using: :btree
+  add_index "identity_members", ["reset_password_token"], name: "index_identity_members_on_reset_password_token", unique: true, using: :btree
+  add_index "identity_members", ["username"], name: "index_identity_members_on_username", unique: true, using: :btree
 
   create_table "project_projects", force: :cascade do |t|
     t.string   "codename"
     t.string   "mission"
-    t.integer  "member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "identity_member_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  add_index "project_projects", ["member_id"], name: "index_project_projects_on_member_id", using: :btree
+  add_index "project_projects", ["identity_member_id"], name: "index_project_projects_on_identity_member_id", using: :btree
 
-  add_foreign_key "project_projects", "members"
+  add_foreign_key "project_projects", "identity_members"
 end
