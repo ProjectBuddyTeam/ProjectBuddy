@@ -1,24 +1,23 @@
 nav.top-bar data-topbar="" role="navigation"
   ul.title-area
     li.name
-      h1
-        a href=root_path ProjectBuddy
-    /! Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+      h1: a href=root_path ProjectBuddy
     li.toggle-topbar.menu-icon: a href="#": span
   section.top-bar-section
-    /! Right Nav Section
+    / Right Nav Section
     ul.right
-      li.active
-        a href="#"  Right Button Active
-      li.has-dropdown
-        a href="#"  Right Button Dropdown
-        ul.dropdown
-          li
-            a href="#"  First link in dropdown
-          li.active
-            a href="#"  Active link in dropdown
-    /! Left Nav Section
+      - if member_signed_in?
+        li.has-dropdown
+          a href="#" = current_member.username
+          ul.dropdown
+            li
+              a href=destroy_member_session_path data-method='delete' Log Out
+      - else
+        li class=active_if_on(new_member_registration_path)
+          a href=new_member_registration_path Sign Up
+        li class=active_if_on(new_member_session_path)
+          a href=new_member_session_path Log In
+    / Left Nav Section
     ul.left
       li
-        a href="#"  Left Nav Button
-
+        a href="#" PROJECTS
