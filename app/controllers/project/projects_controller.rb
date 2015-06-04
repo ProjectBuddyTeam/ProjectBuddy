@@ -1,4 +1,5 @@
 class Project::ProjectsController < ApplicationController
+  before_action :authenticate_member!, except: [:index, :show]
   before_action :set_project_project, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :json
