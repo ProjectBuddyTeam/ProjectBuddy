@@ -1,12 +1,17 @@
 doctype html
 html
   head
-    title
-      | Project Buddy
+    title ProjectBuddy | Find a friend to build your next hack
+    meta charset='utf-8'
+    meta content='width=device-width, initial-scale=1.0' name='viewport'
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    == render 'components/layouts/main_menu'
+    br
     a href=destroy_member_session_path data-method='delete' Logout
     br
     = link_to 'Sign in with GitHub', member_omniauth_authorize_path(:github)

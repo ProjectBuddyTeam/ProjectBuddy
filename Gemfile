@@ -20,6 +20,8 @@ gem 'compass-rails', '~> 2.0.4'
 gem 'uglifier', '~> 2.7.1'
 gem 'slim-rails', '~> 3.0.1'
 gem 'turbolinks', '~> 2.5.3'
+gem 'foundation-rails', '~> 5.5.2'
+
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
