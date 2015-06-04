@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :project do
+    resources :projects
+  end
+
   devise_for :members,
              path_names: {
                  sign_in: 'login',

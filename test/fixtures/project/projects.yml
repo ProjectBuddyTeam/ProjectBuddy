@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codename: MyString
+  mission: MyString
+  member_id: 
+
+two:
+  codename: MyString
+  mission: MyString
+  member_id: 

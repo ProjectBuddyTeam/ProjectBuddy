@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Codename:
+  = @project_project.codename
+p
+  strong Mission:
+  = @project_project.mission
+p
+  strong Member:
+  = @project_project.member
+
+= link_to 'Edit', edit_project_project_path(@project_project)
+'|
+= link_to 'Back', project_projects_path
