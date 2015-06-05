@@ -1,11 +1,15 @@
 class Identity::Member < ActiveRecord::Base
+
+  has_one :profile_basic, class_name: 'Profile::Basic', foreign_key: 'identity_member_id'
+  has_many :projects, class_name: 'Project::Project', foreign_key: 'identity_member_id'
+
+  validates :username, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:github]
-
-  validates :username, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |member|

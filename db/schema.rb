@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604205541) do
+ActiveRecord::Schema.define(version: 20150605230452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20150604205541) do
   add_index "identity_members", ["reset_password_token"], name: "index_identity_members_on_reset_password_token", unique: true, using: :btree
   add_index "identity_members", ["username"], name: "index_identity_members_on_username", unique: true, using: :btree
 
+  create_table "profile_basics", force: :cascade do |t|
+    t.integer  "identity_member_id"
+    t.string   "first_name",         default: ""
+    t.string   "last_name",          default: ""
+    t.string   "github",             default: ""
+    t.string   "deviantart",         default: ""
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "profile_basics", ["identity_member_id"], name: "index_profile_basics_on_identity_member_id", using: :btree
+
   create_table "project_projects", force: :cascade do |t|
     t.string   "codename"
     t.string   "mission"
@@ -73,5 +85,6 @@ ActiveRecord::Schema.define(version: 20150604205541) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  add_foreign_key "profile_basics", "identity_members"
   add_foreign_key "project_projects", "identity_members"
 end

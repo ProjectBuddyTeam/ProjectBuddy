@@ -3,10 +3,10 @@ class Profile::BasicsController < ApplicationController
 
   respond_to :html
 
-  def index
-    @profile_basics = Profile::Basic.all
-    respond_with(@profile_basics)
-  end
+  # def index
+  #   @profile_basics = Profile::Basic.all
+  #   respond_with(@profile_basics)
+  # end
 
   def show
     respond_with(@profile_basic)
@@ -42,6 +42,6 @@ class Profile::BasicsController < ApplicationController
     end
 
     def profile_basic_params
-      params.require(:profile_basic).permit(:identity_member_id, :first_name, :last_name, :github, :deviantart)
+      params.require(:profile_basic).permit(:first_name, :last_name, :github, :deviantart)
     end
 end

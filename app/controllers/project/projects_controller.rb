@@ -3,9 +3,9 @@ class Project::ProjectsController < ApplicationController
   before_action :set_project_project, only: [:show, :edit, :update, :destroy]
   after_action :verify_authorized
 
-  respond_to :html, :json
+  respond_to :html
+
   # GET /projects
-  # GET /projects.json
   def index
     @project_projects = Project::Project.all
     authorize @project_projects
@@ -13,7 +13,6 @@ class Project::ProjectsController < ApplicationController
   end
 
   # GET projects/1
-  # GET projects/1.json
   def show
     authorize @project_project
   end
@@ -32,7 +31,6 @@ class Project::ProjectsController < ApplicationController
   end
 
   # POST /projects
-  # POST /projects.json
   def create
     @project_project = Project::Project.new(project_project_params)
     authorize @project_project
@@ -41,7 +39,6 @@ class Project::ProjectsController < ApplicationController
   end
 
   # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
     authorize @project_project
     @project_project.update(project_project_params)
@@ -49,7 +46,6 @@ class Project::ProjectsController < ApplicationController
   end
 
   # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     authorize @project_project
     @project_project.destroy
