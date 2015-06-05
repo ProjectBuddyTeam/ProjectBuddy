@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identity_member_id: 
+  first_name: MyString
+  last_name: MyString
+  github: MyString
+  deviantart: MyString
+
+two:
+  identity_member_id: 
+  first_name: MyString
+  last_name: MyString
+  github: MyString
+  deviantart: MyString

@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Identity member:
+  = @profile_basic.identity_member
+p
+  strong First name:
+  = @profile_basic.first_name
+p
+  strong Last name:
+  = @profile_basic.last_name
+p
+  strong Github:
+  = @profile_basic.github
+p
+  strong Deviantart:
+  = @profile_basic.deviantart
+
+= link_to 'Edit', edit_profile_basic_path(@profile_basic)
+'|
+= link_to 'Back', profile_basics_path

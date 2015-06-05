@@ -1,0 +1,24 @@
+= form_for @profile_basic do |f|
+  - if @profile_basic.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@profile_basic.errors.count, "error")} prohibited this profile_basic from being saved:"
+      ul
+        - @profile_basic.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :identity_member
+    = f.text_field :identity_member
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :github
+    = f.text_field :github
+  .field
+    = f.label :deviantart
+    = f.text_field :deviantart
+  .actions = f.submit

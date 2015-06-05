@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :profile do
+    resources :basics
+  end
+
   scope module: :project, as: :project do
     resources :projects
   end

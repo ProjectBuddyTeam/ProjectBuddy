@@ -1,0 +1,29 @@
+h1 Listing profile_basics
+
+table
+  thead
+    tr
+      th Identity member
+      th First name
+      th Last name
+      th Github
+      th Deviantart
+      th
+      th
+      th
+
+  tbody
+    - @profile_basics.each do |profile_basic|
+      tr
+        td = profile_basic.identity_member
+        td = profile_basic.first_name
+        td = profile_basic.last_name
+        td = profile_basic.github
+        td = profile_basic.deviantart
+        td = link_to 'Show', profile_basic
+        td = link_to 'Edit', edit_profile_basic_path(profile_basic)
+        td = link_to 'Destroy', profile_basic, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Basic', new_profile_basic_path
