@@ -1,47 +1,57 @@
 class Project::ProjectsController < ApplicationController
   before_action :authenticate_member!, except: [:index, :show]
   before_action :set_project_project, only: [:show, :edit, :update, :destroy]
+  after_action :verify_authorized
 
   respond_to :html, :json
-  # GET /project/projects
-  # GET /project/projects.json
+  # GET /projects
+  # GET /projects.json
   def index
     @project_projects = Project::Project.all
+    authorize @project_projects
     respond_with @project_projects
   end
 
-  # GET /project/projects/1
-  # GET /project/projects/1.json
+  # GET projects/1
+  # GET projects/1.json
   def show
+    authorize @project_project
   end
 
-  # GET /project/projects/new
+  # GET /projects/new
   def new
     @project_project = Project::Project.new
+    authorize @project_project
     respond_with @project_project
   end
 
-  # GET /project/projects/1/edit
+  # GET /projects/1/edit
   def edit
+    authorize @project_project
+    respond_with @project_project
   end
 
-  # POST /project/projects
-  # POST /project/projects.json
+  # POST /projects
+  # POST /projects.json
   def create
     @project_project = Project::Project.new(project_project_params)
+    authorize @project_project
+    @project_project.member = current_member
     respond_with @project_project
   end
 
-  # PATCH/PUT /project/projects/1
-  # PATCH/PUT /project/projects/1.json
+  # PATCH/PUT /projects/1
+  # PATCH/PUT /projects/1.json
   def update
+    authorize @project_project
     @project_project.update(project_project_params)
     respond_with @project_project
   end
 
-  # DELETE /project/projects/1
-  # DELETE /project/projects/1.json
+  # DELETE /projects/1
+  # DELETE /projects/1.json
   def destroy
+    authorize @project_project
     @project_project.destroy
     respond_with @project_project
   end

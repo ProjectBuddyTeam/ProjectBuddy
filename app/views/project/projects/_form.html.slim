@@ -13,9 +13,6 @@
     = f.label :mission
     = f.text_field :mission
   .field
-    = f.label :member
-    = f.text_field :member
-  .field
     = f.label :tag_list, 'Comma-separated list of tags'
     = f.text_field :tag_list, value: @project_project.tag_list.join(', ')
   .actions = f.submit
