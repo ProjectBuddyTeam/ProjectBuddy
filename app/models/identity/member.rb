@@ -5,6 +5,8 @@ class Identity::Member < ActiveRecord::Base
 
   validates :username, presence: true
 
+  before_create :build_profile_basic
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -27,4 +29,9 @@ class Identity::Member < ActiveRecord::Base
       end
     end
   end
+
+  protected
+    def build_profile_basic
+      self.profile_basic = Profile::Basic.create
+    end
 end
