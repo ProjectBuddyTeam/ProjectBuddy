@@ -1,0 +1,25 @@
+h1 My Projects
+
+table
+  thead
+    tr
+      th Codename
+      th Mission
+      th Member
+      th
+      th
+      th
+
+  tbody
+    - @projects.each do |proj|
+      tr
+        td = proj.codename
+        td = proj.mission
+        td = proj.member
+        td = link_to 'Show', proj
+        td = link_to 'Edit', edit_project_project_path(proj)
+        td = link_to 'Destroy', proj, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Project', new_project_project_path
