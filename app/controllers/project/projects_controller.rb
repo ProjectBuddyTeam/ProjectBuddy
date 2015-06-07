@@ -35,6 +35,7 @@ class Project::ProjectsController < ApplicationController
     @project_project = Project::Project.new(project_project_params)
     authorize @project_project
     @project_project.member = current_member
+    @project_project.save
     respond_with @project_project
   end
 

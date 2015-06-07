@@ -10,6 +10,8 @@
     | Post it on ProjectBuddy
   .small-4.medium-2.columns.end.text-center
     i.ss-soccer#three
-    | Find a buddy and get hackin' together!
+    | Find a buddy & hack together!
 
-= render partial: 'project/projects/project', collection: @projects
+ul.small-block-grid-1.medium-block-grid-3.large-block-grid-5
+  - @projects.each do |proj|
+    li = render partial: 'project/projects/project', locals: { project: proj }
