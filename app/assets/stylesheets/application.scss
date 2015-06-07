@@ -12,6 +12,8 @@
  *
  *= require foundation_and_overrides
  *= require partials/all
+ *= require ss-pika
  *= require_directory ./shared
+ *= require_directory ./home
  *= require_self
  */

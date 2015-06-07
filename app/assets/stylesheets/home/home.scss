@@ -1,0 +1,16 @@
+@import "parameters/all";
+
+#splash-intro {
+  .columns {
+    i {
+      @media #{$small-only} {
+        font-size: 200%;
+      }
+      @media #{$medium-up} {
+        font-size: 250%;
+      }
+      display: block;
+      color: $color-secondary-1-1;
+    }
+  }
+}

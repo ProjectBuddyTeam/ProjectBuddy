@@ -97,7 +97,7 @@ $include-html-global-classes: $include-html-classes;
 // $font-weight-normal: normal;
 // $font-weight-bold: bold;
 
-// $white       : #FFFFFF;
+ $white       : $color-white;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -126,7 +126,7 @@ $secondary-color: $color-secondary-1-0;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-// $body-bg: $white;
+ $body-bg: $white;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -152,6 +152,8 @@ $secondary-color: $color-secondary-1-0;
 
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@import "parameters/media";
 
 // $small-breakpoint:  em-calc(640);
 // $medium-breakpoint: em-calc(1024);
