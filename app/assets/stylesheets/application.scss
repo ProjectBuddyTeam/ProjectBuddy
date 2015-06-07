@@ -12,5 +12,6 @@
  *
  *= require foundation_and_overrides
  *= require partials/all
+ *= require_directory ./shared
  *= require_self
  */
