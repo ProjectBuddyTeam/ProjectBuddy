@@ -1,16 +1,18 @@
-.row
-  .small-12.columns.text-center
-    h1 Welcome
-.row#splash-intro
-  .small-4.medium-offset-3.medium-2.columns.text-center
-    i.ss-lightbulbon#one
-    | Have a cool hack idea
-  .small-4.medium-2.columns.text-center
-    i.ss-megaphone#two
-    | Post it on ProjectBuddy
-  .small-4.medium-2.columns.end.text-center
-    i.ss-soccer#three
-    | Find a buddy & hack together!
+#splash
+  .row
+    .small-12.columns.text-center
+      h1 Build Together
+      br
+  .row#splash-intro
+    .small-4.medium-offset-3.medium-2.columns.text-center
+      i.ss-lightbulbon#one
+      | Have a cool hack idea
+    .small-4.medium-2.columns.text-center
+      i.ss-megaphone#two
+      | Post it on ProjectBuddy
+    .small-4.medium-2.columns.end.text-center
+      i.ss-soccer#three
+      | Find a buddy & hack together!
 
 ul.small-block-grid-1.medium-block-grid-3.large-block-grid-5
   - @projects.each do |proj|

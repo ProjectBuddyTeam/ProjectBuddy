@@ -1,24 +1,28 @@
 @import "parameters/all";
 
-#splash-intro {
-  .columns {
-    i {
-      @media #{$small-only} {
-        font-size: 200%;
-      }
-      @media #{$medium-up} {
-        font-size: 250%;
-      }
-      display: block;
+#splash {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  #splash-intro {
+    .columns {
+      i {
+        @media #{$small-only} {
+          font-size: 200%;
+        }
+        @media #{$medium-up} {
+          font-size: 250%;
+        }
+        display: block;
 
-      &#one {
-        color: $color-primary-2;
-      }
-      &#two {
-        color: $color-secondary-1-2;
-      }
-      &#three {
-        color: $color-secondary-2-2;
+        &#one {
+          color: $color-primary-2;
+        }
+        &#two {
+          color: $color-secondary-1-2;
+        }
+        &#three {
+          color: $color-secondary-2-2;
+        }
       }
     }
   }
