@@ -14,6 +14,6 @@
       i.ss-soccer#three
       | Find a buddy & hack together!
 
-ul.small-block-grid-1.medium-block-grid-3.large-block-grid-5
+.row#home-projects: .small-12.columns: ul.small-block-grid-1.medium-block-grid-3.large-block-grid-4
   - @projects.each do |proj|
     li = render partial: 'project/projects/project', locals: { project: proj }

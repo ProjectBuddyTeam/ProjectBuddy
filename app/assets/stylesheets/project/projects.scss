@@ -1,3 +1,39 @@
 // Place all the styles related to the Project::Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "parameters/all";
+
+.project-single {
+  $border-color: #202020;
+  .codename-section {
+    background: scale-color($color-white, $lightness: -5%);
+    $border-style: solid 1px $border-color;
+    border-top: $border-style;
+    @media #{$medium-up} {
+      border-left: $border-style;
+      border-right: $border-style;
+      border-radius: $radius-regular $radius-regular 0 0;
+      span.value {
+        font-size: large;
+      }
+    }
+  }
+  .mission-section {
+    background: scale-color($color-white, $lightness: -2%);
+    $alternate-border-style: solid 1px scale-color($border-color, $lightness: 50%);
+    border-bottom: $alternate-border-style;
+    @media #{$medium-up} {
+      border: $alternate-border-style;
+      border-radius: 0 0 $radius-regular $radius-regular;
+    }
+    p.value {
+      margin-bottom: 0;
+      color: scale-color($color-black, $lightness: 20%);
+    }
+  }
+
+  .attribute {
+    font-size: x-small;
+  }
+}

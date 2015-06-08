@@ -2,7 +2,6 @@
 
 #splash {
   margin-top: 1rem;
-  margin-bottom: 1rem;
   #splash-intro {
     .columns {
       i {
@@ -24,6 +23,16 @@
           color: $color-secondary-2-2;
         }
       }
+    }
+  }
+}
+
+#home-projects {
+  margin-top: 2rem;
+  .project-single {
+    @media #{$medium-up} {
+      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 }

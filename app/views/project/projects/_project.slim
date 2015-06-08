@@ -1,7 +1,11 @@
-.row
-  .small-12.columns
-    h2: small Codename
-    h2 = project.codename
-  .small-12.columns
-    h2: small Mission
-    h2 = project.mission
+.project-single
+  .codename-section.row
+    .small-2.medium-12.columns
+      span.attribute> CODENAME:
+    .small-10.medium-12.columns
+      span.value = project.codename
+  .mission-section.row
+    .small-2.medium-12.columns
+      span.attribute> MISSION:
+    .small-10.medium-12.columns
+      p.value = project.mission
