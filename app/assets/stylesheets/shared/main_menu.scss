@@ -12,11 +12,11 @@
 
 #page-title {
   position: absolute;
+  line-height: 45px;
   @media #{$medium-up} {
     font-size: 1.6rem;
   }
   @media #{$small-only} {
-    top: 0.3rem;
     font-size: 1.3rem;
   }
   color: #999999;
