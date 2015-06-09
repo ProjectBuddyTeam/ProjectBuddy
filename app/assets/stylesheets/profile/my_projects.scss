@@ -19,23 +19,23 @@
         color: scale-color($color-black, $lightness: 20%);
         @media #{$small-only} {
           .codename-row-for-small {
-            font-size: large;
+            //font-size: large;
             font-weight: bold;
           }
         }
       }
-      .action-row {
+      .action-row span {
         @media #{$medium-up} {
           opacity: 0;
-          @include transition-property(opacity);
-          @include transition-duration(0.2s);
-          @include transition-timing-function(ease-in-out);
+          @include transform(scale(0.9));
+          @include transition(all $duration-regular ease-in-out);
         }
       }
       @media #{$medium-up} {
         &:hover {
-          .action-row {
+          .action-row span {
             opacity: 1;
+            @include transform(none);
           }
         }
       }
