@@ -1,19 +1,23 @@
-p#notice = notice
+- content_for :page_title, 'Project'
+- content_for :splash_content do
+  .row
+    .small-12.columns.text-center
+      h2 = @project_project.codename
+  .row
+    .small-12.medium-6.medium-centered.columns.text-center
+      br
+      - @project_project.tags.each do |tag|
+        span.radius.splash-label = tag.name
 
-p
-  strong Codename:
-  = @project_project.codename
-p
-  strong Mission:
-  = @project_project.mission
-p
-  strong Member:
-  = @project_project.member.username
-p
-  strong Tags:
-  - @project_project.tags.each do |tag|
-    = tag.name + ', '
-
-= link_to 'Edit', @project_project
-'|
-= link_to 'Back', project_projects_path
+.row
+  .small-12.medium-9.columns
+    h2 Mission
+    p = @project_project.mission
+  .small-12.medium-3.columns
+    h3 Member Profile
+    h4: small Username
+    b = @project_project.member_username
+    h4: small Joined
+    b = "#{time_ago_in_words @project_project.member_created_at} ago"
+    hr
+    a.small.info.radius.button Show Contact

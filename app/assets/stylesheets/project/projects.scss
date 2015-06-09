@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "parameters/all";
+@import "foundation/components/labels";
 
 .project-single {
   $primary-border-style: solid 1px #DFDFDF;
@@ -54,5 +55,23 @@
   }
   .attribute {
     font-size: x-small;
+  }
+}
+
+#projects-show {
+  #splash-content {
+    h2, p, span, div, a {
+      color: $color-white !important;
+    }
+    background-color: $color-primary-1;
+    .splash-label {
+      margin-right: 2px;
+      margin-left: 2px;
+      @include label(
+      $text-size: 1.2rem,
+      $bg: $color-secondary-2-1,
+      $radius: $radius-regular
+      );
+    }
   }
 }
