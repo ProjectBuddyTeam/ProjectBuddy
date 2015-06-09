@@ -8,6 +8,8 @@
       = project.tag_list
   .row.action-row
     .small-12.columns.text-right
-      = link_to 'EDIT', edit_project_project_path(project)
+      = link_to 'Project Page', project_project_path(project)
       = ' | '
-      = link_to 'ARCHIVE', project, method: :delete
+      = link_to 'Edit', edit_project_project_path(project)
+      = ' | '
+      = link_to 'Archive', project, method: :delete
