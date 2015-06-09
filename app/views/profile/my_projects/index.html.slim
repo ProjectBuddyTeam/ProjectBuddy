@@ -1,8 +1,4 @@
-.row
-  .small-12.columns
-    ul.small-block-grid-1.medium-block-grid-3.large-block-grid-5
-      - @projects.each do |proj|
-        li = render partial: 'project/projects/project', locals: { project: proj }
+= render partial: 'profile/my_projects/project', collection: @projects
 
 /h1 My Projects
 /
@@ -29,3 +25,4 @@
 /br
 /
 /= link_to 'New Project', new_project_project_path
+.row

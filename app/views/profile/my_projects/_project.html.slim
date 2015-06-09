@@ -1,0 +1,11 @@
+.row
+  .small-3.columns
+    = project.codename
+  .small-6.columns
+    = project.mission
+  .small-3.columns.text-right
+    = project.tag_list
+.row
+  .small-12.columns.text-right
+    = link_to 'Edit', edit_project_project_path(project)
+    = link_to 'Archive', project, method: :delete
