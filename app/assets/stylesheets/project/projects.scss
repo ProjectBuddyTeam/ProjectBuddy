@@ -5,34 +5,53 @@
 @import "parameters/all";
 
 .project-single {
-  $border-color: #202020;
-  .codename-section {
+  $primary-border-style: solid 1px #DFDFDF;
+  $secondary-border-style: solid 1px #ECECEC;
+
+  @mixin primary-row-style($type:"header") {
     background: scale-color($color-white, $lightness: -5%);
-    $border-style: solid 1px $border-color;
-    border-top: $border-style;
+    border-top: $primary-border-style;
+    border-bottom: $primary-border-style;
     @media #{$medium-up} {
-      border-left: $border-style;
-      border-right: $border-style;
-      border-radius: $radius-regular $radius-regular 0 0;
-      span.value {
-        font-size: large;
+      border-left: $primary-border-style;
+      border-right: $primary-border-style;
+      @if $type == "header" {
+        border-radius: $radius-regular $radius-regular 0 0;
+      } @else if $type == "footer" {
+        border-radius: 0 0 $radius-regular $radius-regular;
       }
     }
   }
-  .mission-section {
-    background: scale-color($color-white, $lightness: -2%);
-    $alternate-border-style: solid 1px scale-color($border-color, $lightness: 50%);
-    border-bottom: $alternate-border-style;
-    @media #{$medium-up} {
-      border: $alternate-border-style;
-      border-radius: 0 0 $radius-regular $radius-regular;
+  .row {
+    &:first-child {
+      @include primary-row-style($type: "header");
     }
-    p.value {
-      margin-bottom: 0;
+    &:not(:first-child):not(:last-child) {
+      @media #{$medium-up} {
+        border-left: $secondary-border-style;
+        border-right: $secondary-border-style;
+      }
+      background: scale-color($color-white, $lightness: -2%);
+    }
+    &:last-child {
+      @include primary-row-style($type: "footer");
+    }
+  }
+  .codename-section {
+    span.value {
+      font-size: large;
+    }
+  }
+  .mission-section, .member-section {
+    .value {
       color: scale-color($color-black, $lightness: 20%);
     }
   }
-
+  .mission-section {
+    p.value {
+      margin-bottom: 0;
+    }
+  }
   .attribute {
     font-size: x-small;
   }
