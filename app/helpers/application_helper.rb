@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def current_container_selector
-    "#{controller_name.downcase}-#{action_name.downcase}"
+    "#{controller_name.downcase.tr!('_','-')}-#{action_name.downcase}"
   end
 end
