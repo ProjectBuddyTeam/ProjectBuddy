@@ -1,11 +1,13 @@
-.row
-  .small-3.columns
-    = project.codename
-  .small-6.columns
-    = project.mission
-  .small-3.columns.text-right
-    = project.tag_list
-.row
-  .small-12.columns.text-right
-    = link_to 'Edit', edit_project_project_path(project)
-    = link_to 'Archive', project, method: :delete
+.project-row
+  .row.info-row
+    .small-12.medium-3.columns.codename-row-for-small
+      = project.codename
+    .small-12.medium-6.columns.mission-row-for-small
+      = project.mission
+    .small-12.medium-3.columns.text-right.tags-row-for-small
+      = project.tag_list
+  .row.action-row
+    .small-12.columns.text-right
+      = link_to 'EDIT', edit_project_project_path(project)
+      = ' | '
+      = link_to 'ARCHIVE', project, method: :delete

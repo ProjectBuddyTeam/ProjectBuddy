@@ -4,6 +4,13 @@
     .small-12.columns.text-center
 
 #projects
+  .row.header-row.show-for-medium-up
+    .small-3.columns
+      | CODENAME
+    .small-6.columns
+      | MISSION
+    .small-3.columns.text-right
+      | TAGS
   = render partial: 'profile/my_projects/project', collection: @projects
 /h1 My Projects
 /
