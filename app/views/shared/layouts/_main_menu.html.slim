@@ -1,28 +1,29 @@
 #page-title = title
 
-nav.top-bar data-topbar="" role="navigation"
-  ul.title-area
-    li.name
-      a href=root_path
-        img#logo src=asset_path('branding/logo draft white.png')
-    li.toggle-topbar.menu-icon: a href="#": span
-  section.top-bar-section
-    / Right Nav Section
-    ul.right
-      - if member_signed_in?
-        li.has-dropdown
-          a href="#" = current_member.username
-          ul.dropdown
-            li
-              = link_to 'My Projects', profile_my_projects_path
-            li
-              a href=destroy_member_session_path data-method='delete' Log Out
-      - else
-        li class=active_if_on(new_member_registration_path)
-          a href=new_member_registration_path Sign Up
-        li class=active_if_on(new_member_session_path)
-          a href=new_member_session_path Log In
-    / Left Nav Section
-    /ul.left
-    /  li class=active_if_on(project_projects_path)
-    /    a href=project_projects_path PROJECTS
+.contain-to-grid
+  nav.top-bar data-topbar="" role="navigation"
+    ul.title-area
+      li.name
+        a href=root_path
+          img#logo src=asset_path('branding/logo draft white.png')
+      li.toggle-topbar.menu-icon: a href="#": span
+    section.top-bar-section
+      / Right Nav Section
+      ul.right
+        - if member_signed_in?
+          li.has-dropdown
+            a href="#" = current_member.username
+            ul.dropdown
+              li
+                = link_to 'My Projects', profile_my_projects_path
+              li
+                a href=destroy_member_session_path data-method='delete' Log Out
+        - else
+          li class=active_if_on(new_member_registration_path)
+            a href=new_member_registration_path Sign Up
+          li class=active_if_on(new_member_session_path)
+            a href=new_member_session_path Log In
+      / Left Nav Section
+      /ul.left
+      /  li class=active_if_on(project_projects_path)
+      /    a href=project_projects_path PROJECTS
