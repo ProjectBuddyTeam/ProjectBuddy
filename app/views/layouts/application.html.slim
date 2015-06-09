@@ -11,4 +11,5 @@ html
     = csrf_meta_tags
   body
     == render 'shared/layouts/main_menu'
-    = yield
+    div id=current_container_selector
+      = yield

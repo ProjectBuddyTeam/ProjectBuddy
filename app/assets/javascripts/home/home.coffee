@@ -1,24 +1,22 @@
-initMasonry = ->
-  $('#home-projects').masonry
-    itemSelector: '.project-single',
-    columnWidth: 320,
-    isFitWidth: true
+initMasonry = (container) ->
+  if !container.data('inMasonryMode')
+    container.masonry
+      itemSelector: '.project-single',
+      columnWidth: 320,
+      isFitWidth: true
+    container.data('inMasonryMode', true)
+
+destroyMasonry = (container) ->
+  if container.data('inMasonryMode')
+    container.masonry('destroy')
+    container.data('inMasonryMode', false)
 
 $(document).on 'ready page:load', ->
-  initMasonry()
+  initMasonry($('#projects-dynamic-index'))
 
-  # Hacky way to switch between masonry mode and grid-block mode
   $(window).on 'load, resize', Foundation.utils.throttle(( (e) ->
     if !window.matchMedia(Foundation.media_queries.medium).matches
-      old_html = $('#home-projects').html()
-      if ! $('#home-projects').find('ul').size()
-        $('#home-projects').html($('<ul class="small-block-grid-1">' + old_html + '</ul>')).masonry('destroy')
-        $('.project-single').each (index, value) ->
-          $(value).replaceWith('<li class="project-single">' + $(value).html() + '</li>')
+      destroyMasonry $('#projects-dynamic-index')
     else
-      if $('#home-projects').find('ul').size()
-        $('#home-projects > ul').replaceWith($('#home-projects > ul').html())
-        $('.project-single').each (index, value) ->
-          $(value).replaceWith('<div class="project-single">' + $(value).html() + '</div>')
-        initMasonry()
+      initMasonry $('#projects-dynamic-index')
   ), 300)
