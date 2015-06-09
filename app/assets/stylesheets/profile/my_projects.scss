@@ -1,5 +1,12 @@
+@import "parameters/all";
+
 #my-projects-index {
-  .project-single {
-    margin: 10px;
+  #splash-content {
+    background: transparent asset-url('graphics/splashes/work_desk.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  #projects {
+    margin-top: 1rem;
   }
 }

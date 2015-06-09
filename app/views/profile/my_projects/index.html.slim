@@ -1,7 +1,10 @@
 - content_for :page_title, 'My Projects'
+- content_for :splash_content do
+  .row
+    .small-12.columns.text-center
 
-= render partial: 'profile/my_projects/project', collection: @projects
-
+#projects
+  = render partial: 'profile/my_projects/project', collection: @projects
 /h1 My Projects
 /
 /table

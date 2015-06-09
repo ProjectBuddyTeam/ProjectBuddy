@@ -1,0 +1,13 @@
+@import "parameters/all";
+
+#splash-content {
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  @media #{$small-only} {
+    min-height: 160px;
+  }
+  @media #{$medium-up} {
+    min-height: 240px;
+  }
+}

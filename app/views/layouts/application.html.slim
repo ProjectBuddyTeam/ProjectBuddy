@@ -12,4 +12,5 @@ html
   body
     == render partial: 'shared/layouts/main_menu', locals: { title: "#{yield(:page_title) if content_for?(:page_title)}" }
     div id=current_container_selector
+      #splash-content == yield(:splash_content) if content_for?(:splash_content)
       = yield
