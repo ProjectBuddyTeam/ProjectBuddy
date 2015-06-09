@@ -29,11 +29,13 @@
 
 #home-projects {
   margin-top: 2rem;
-  margin-right: auto;
-  margin-left: auto;
-  .project-single {
-    float: left;
-    width: 300px;
-    padding: 10px 15px;
+  @media #{$medium-up} {
+    margin-right: auto;
+    margin-left: auto;
+    .project-single {
+      float: left;
+      width: 300px;
+      padding: 10px 15px;
+    }
   }
 }
