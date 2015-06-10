@@ -20,4 +20,6 @@
     h4: small Joined
     b = "#{time_ago_in_words @project_project.member_created_at} ago"
     hr
-    a.small.info.radius.button Show Contact
+    #contact-info
+    a#show-contact.small.info.radius.button onclick="PB.projects.show.show_contact(#{@project_project.member_id}, this)"
+      | Show Contact

@@ -20,3 +20,5 @@
 $(document).on('ready page:load', function(){
     $(document).foundation();
 });
+
+var PB = PB || new Object();

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :profile do
     resources :basics
     resources :my_projects, only: [:index]
+    resources :contacts, only: [:show]
   end
 
   scope module: :project, as: :project do
