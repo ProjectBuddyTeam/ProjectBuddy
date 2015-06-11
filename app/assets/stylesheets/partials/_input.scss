@@ -1,0 +1,5 @@
+form {
+  input:not(.restore-radius) {
+    border-radius: $radius-regular !important;
+  }
+}

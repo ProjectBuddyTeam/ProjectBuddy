@@ -1,5 +1,5 @@
 # A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 ruby '2.2.2'
 
@@ -23,7 +23,9 @@ gem 'uglifier', '~> 2.7.1'
 gem 'slim-rails', '~> 3.0.1'
 gem 'turbolinks', '~> 2.5.3'
 gem 'foundation-rails', '~> 5.5.2'
-
+source 'https://rails-assets.org' do
+  gem 'rails-assets-font-awesome'
+end
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

@@ -3,7 +3,7 @@ class Identity::Member < ActiveRecord::Base
   has_one :profile_basic, class_name: 'Profile::Basic', foreign_key: 'identity_member_id'
   has_many :projects, class_name: 'Project::Project', foreign_key: 'identity_member_id'
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   before_create :build_profile_basic
 
