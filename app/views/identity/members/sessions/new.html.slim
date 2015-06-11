@@ -1,19 +1,62 @@
-h2
-  | Log in
+- content_for :page_title, 'Log In'
+- content_for :splash_content do
+  .row: small-12.columns.text-center
+    br
+    br
+    h2: small The perfect is the enemy of the good.
+    i - Voltaire
+
+
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :username
-    br
-    = f.text_field :username, autofocus: true
-  .field
-    = f.label :password
-    br
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
+  .row
+    .small-12.medium-6.medium-centered.columns.text-center
+      a.secondary.radius.success.button href=omniauth_authorize_path(resource_name, :github)
+        i.fa.fa-github
+        |  Log in with GitHub
+      hr
+      span or log in with good old email and password
+  .row
+    .small-12.medium-6.medium-centered.columns
+      br
+      - if resource.errors.any?
+        .radius.alert.alert-box
+          ul
+            - resource.errors.full_messages.each do |msg|
+              li = "#{msg}"
+  .row
+    .small-12.medium-6.medium-centered.columns
+      .row.collapse.prefix-radius
+        .small-3.columns = f.label :username, class: 'prefix restore-radius'
+        .small-9.columns = f.text_field :username, autofocus: true, required: true, class: 'restore-radius'
+    .small-12.medium-6.medium-centered.columns
+      .row.collapse.prefix-radius
+        .small-3.columns = f.label :password, class: 'prefix restore-radius'
+        .small-9.columns = f.password_field :password, class: 'restore-radius', required: true, pattern: ".{#{@minimum_password_length},}", title: 'Come on, 8 characters minimum'
+    .small-12.medium-6.medium-centered.columns.text-center
+      - if devise_mapping.rememberable?
+        = f.check_box :remember_me
+        = f.label :remember_me
+      br
+      = f.submit 'Log in', class: 'radius button'
+  .row
+    .small-12.medium-6.medium-centered.columns
+      = render 'identity/members/shared/links'
+/h2
+/  | Log in
+/= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+/  .field
+/    = f.label :username
+/    br
+/    = f.text_field :username, autofocus: true
+/  .field
+/    = f.label :password
+/    br
+/    = f.password_field :password
+/  - if devise_mapping.rememberable?
+/    .field
+/      = f.check_box :remember_me
+/      = f.label :remember_me
+/  .actions
+/    = f.submit "Log in"
 br
-= render "identity/members/shared/links"
+/= render "identity/members/shared/links"
