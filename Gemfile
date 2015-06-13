@@ -26,6 +26,7 @@ gem 'foundation-rails', '~> 5.5.2'
 source 'https://rails-assets.org' do
   gem 'rails-assets-font-awesome'
   gem 'rails-assets-brianreavis--selectize.js'
+  gem 'rails-assets-Hover'
 end
 
 gem 'jquery-rails'
