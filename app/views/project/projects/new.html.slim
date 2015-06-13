@@ -1,5 +1,8 @@
-h1 New project_project
-
-== render 'form'
-
-= link_to 'Back', project_projects_path
+- content_for :page_title, 'New Project'
+- content_for :splash_content do
+  .row: small-12.columns.text-center
+    br
+    br
+    h2: small “It always seems impossible until it’s done.”
+    i - Nelson Mandela
+== render partial: 'form', locals: { project: @project_project, action: 'Create Project' }

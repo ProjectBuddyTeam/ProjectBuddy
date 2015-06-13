@@ -1,8 +1,9 @@
-h1 Editing project_project
+- content_for :page_title, 'Edit Project'
+- content_for :splash_content do
+  .row: small-12.columns.text-center
+    br
+    br
+    h2: small “It always seems impossible until it’s done.”
+    i - Nelson Mandela
 
-== render 'form'
-
-= link_to 'Show', @project_project
-'|
-= link_to 'Back', project_projects_path
-
+== render partial: 'form', locals: { project: @project_project, action: 'Save Changes' }

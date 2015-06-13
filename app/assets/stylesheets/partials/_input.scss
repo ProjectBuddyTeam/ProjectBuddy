@@ -1,5 +1,5 @@
 form {
-  input:not(.restore-radius) {
+  input:not(.restore-radius), textarea {
     border-radius: $radius-regular !important;
   }
 }

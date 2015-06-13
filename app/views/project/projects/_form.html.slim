@@ -1,18 +1,24 @@
-= form_for @project_project, url: @project_project do |f|
-  - if @project_project.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@project_project.errors.count, "error")} prohibited this project_project from being saved:"
-      ul
-        - @project_project.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :codename
-    = f.text_field :codename
-  .field
-    = f.label :mission
-    = f.text_field :mission
-  .field
-    = f.label :tag_list, 'Comma-separated list of tags'
-    = f.text_field :tag_list, value: @project_project.tag_list.join(', ')
-  .actions = f.submit
+= form_for project, url: project do |f|
+  .row
+    .small-12.medium-6.medium-centered.columns
+      br
+      - if project.errors.any?
+        .radius.alert.alert-box
+          ul
+            - project.errors.full_messages.each do |msg|
+              li = "#{msg}"
+  .row
+    .small-12.medium-6.medium-centered.columns
+      .row.collapse.prefix-radius
+        .small-3.columns = f.label :codename, class: 'prefix restore-radius'
+        .small-9.columns = f.text_field :codename, autofocus: true, required: true, class: 'restore-radius'
+    .small-12.medium-6.medium-centered.columns
+      .row.collapse.prefix-radius
+        .small-3.columns = f.label :tag_list, class: 'prefix restore-radius'
+        .small-9.columns = f.text_field :tag_list, required: true, class: 'restore-radius'
+    .small-12.medium-6.medium-centered.columns
+      = f.label :mission
+      = f.text_area :mission, required: true
+    .small-12.medium-6.medium-centered.columns.text-center
+      br
+      = f.submit action, class: 'radius button'
