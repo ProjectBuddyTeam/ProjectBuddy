@@ -25,36 +25,32 @@ $include-html-classes: false;
       }
     }
   }
-  .row {
-    &:first-child {
-      @include primary-row-style($type: "header");
-    }
-    &:not(:first-child):not(:last-child) {
-      @media #{$medium-up} {
-        border-left: $secondary-border-style;
-        border-right: $secondary-border-style;
-      }
-      background: scale-color($color-white, $lightness: -2%);
-    }
-    &:last-child {
-      @include primary-row-style($type: "footer");
-    }
-  }
   .codename-section {
+    @include primary-row-style($type: "header");
     span.value {
       font-size: large;
     }
   }
+  .mission-section {
+    @media #{$medium-up} {
+      border-left: $secondary-border-style;
+      border-right: $secondary-border-style;
+    }
+    background: scale-color($color-white, $lightness: -2%);
+    p.value {
+      margin-bottom: 0;
+    }
+  }
+  .member-section {
+    @include primary-row-style($type: "footer");
+  }
+
   .mission-section, .member-section {
     .value {
       color: scale-color($color-black, $lightness: 20%);
     }
   }
-  .mission-section {
-    p.value {
-      margin-bottom: 0;
-    }
-  }
+
   .attribute {
     font-size: x-small;
   }
