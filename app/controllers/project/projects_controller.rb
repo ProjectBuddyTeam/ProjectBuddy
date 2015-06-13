@@ -27,7 +27,7 @@ class Project::ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     authorize @project_project
-    respond_with @project_project
+    respond_with @project_project, location: profile_my_projects_path
   end
 
   # POST /projects

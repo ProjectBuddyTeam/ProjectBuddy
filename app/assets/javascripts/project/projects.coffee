@@ -14,8 +14,9 @@ $(document).on 'page:change', ->
 
   PB.projects.form.init_tags = (element) ->
     $(element).selectize
-      delimiter: ','
-      persist: false
+      plugins: ['restore_on_backspace', 'remove_button'],
+      delimiter: ',',
+      persist: false,
       create: (input) ->
         {
           value: input

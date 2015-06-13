@@ -13,9 +13,8 @@
         .small-3.columns = f.label :codename, class: 'prefix restore-radius'
         .small-9.columns = f.text_field :codename, autofocus: true, required: true, class: 'restore-radius'
     .small-12.medium-6.medium-centered.columns
-      .row.collapse.prefix-radius
-        .small-3.columns = f.label :tag_list, class: 'prefix restore-radius'
-        .small-9.columns = f.text_field :tag_list, value: project.tag_list.join(','), required: true, class: 'restore-radius'
+      = f.label :tag_list, 'Relevant Tags'
+      = f.text_field :tag_list, value: project.tag_list.join(','), required: true
     .small-12.medium-6.medium-centered.columns
       = f.label :mission
       = f.text_area :mission, required: true
