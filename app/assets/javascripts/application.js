@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require masonry.pkgd.js
+//= require selectize/standalone/selectize
 //= require_tree .
 
 $(document).on('ready page:load', function(){

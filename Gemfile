@@ -25,6 +25,7 @@ gem 'turbolinks', '~> 2.5.3'
 gem 'foundation-rails', '~> 5.5.2'
 source 'https://rails-assets.org' do
   gem 'rails-assets-font-awesome'
+  gem 'rails-assets-brianreavis--selectize.js'
 end
 
 gem 'jquery-rails'
