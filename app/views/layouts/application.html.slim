@@ -14,3 +14,4 @@ html
     div id=current_container_selector
       #splash-content == yield(:splash_content) if content_for?(:splash_content)
       = yield
+    == render partial: 'shared/layouts/footer'
