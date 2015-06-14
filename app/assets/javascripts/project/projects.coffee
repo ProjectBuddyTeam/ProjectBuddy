@@ -11,6 +11,13 @@ $(document).on 'page:change', ->
       .done (r, status, xhr) ->
         $(button).hide()
         $('#contact-info').html(r)
+      .fail (xhr, textStatus, errorThrown) ->
+        if xhr.status == 401
+          $('#contact-info').html(
+            '<div data-alert class="alert-box alert radius">' +
+              'Please log in to view private contact info.' +
+            '</div>'
+          )
 
   PB.projects.form.init_tags = (element) ->
     $(element).selectize
