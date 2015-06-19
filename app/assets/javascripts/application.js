@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require masonry.pkgd.js
 //= require selectize/standalone/selectize
+//= require google_analytics
 //= require_tree .
 
 $(document).on('ready page:load', function(){
