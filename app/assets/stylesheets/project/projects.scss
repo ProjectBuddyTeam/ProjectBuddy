@@ -25,6 +25,9 @@ $include-html-classes: false;
       }
     }
   }
+
+  word-break: break-word;
+
   .codename-section {
     @include primary-row-style($type: "header");
     span.value {
