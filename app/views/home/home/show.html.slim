@@ -18,5 +18,15 @@
 .row
   .small-12.columns
     ul#projects-dynamic-index.small-block-grid-1.medium-block-grid-3.large-block-grid-5
+
+      / the dummy new project item
+      li: .project-single#new-project: a.hvr-float-shadow href=new_project_project_path
+        .row: .small-12.columns.text-center
+          - 1.times do
+            br
+          i.ss-plus
+          span  New Project
+          - 2.times do
+            br
       - @projects.each do |proj|
         li = render partial: 'project/projects/project', locals: { project: proj }

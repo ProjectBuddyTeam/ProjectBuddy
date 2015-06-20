@@ -38,6 +38,21 @@
         width: 300px;
         padding: 10px 15px;
       }
+
+      #new-project {
+        > a {
+          width: 100%;
+        }
+        .row {
+          border: solid 1px #DFDFDF;
+          background: scale-color($color-white, $lightness: -2%);
+          border-radius: $radius-regular;
+          i, span {
+            font-size: 150%;
+            color: scale-color($color-white, $lightness: -25%);
+          }
+        }
+      }
     }
   }
 }

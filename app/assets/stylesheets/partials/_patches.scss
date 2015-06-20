@@ -1,0 +1,5 @@
+// this one fixes annoying pika baseline being higher than lato's baseline
+i[class^="ss-"] {
+  top: 0.1em;
+  position: relative;
+}
