@@ -19,5 +19,5 @@
       = f.label :mission
       = f.text_area :mission, required: true, rows: 15
     .small-12.medium-6.medium-centered.columns.text-center
-      br
+      p = "Your email address (#{current_member.email}) will be visible when interested members request for contact."
       = f.submit action, class: 'radius button'
