@@ -1,7 +1,12 @@
 class Identity::Member < ActiveRecord::Base
 
-  has_one :profile_basic, class_name: 'Profile::Basic', foreign_key: 'identity_member_id'
+  has_one :profile_basic,
+          class_name: 'Profile::Basic',
+          foreign_key: 'identity_member_id',
+          dependent: :destroy
   has_many :projects, class_name: 'Project::Project', foreign_key: 'identity_member_id'
+
+  delegate :github, to: :profile_basic, prefix: true
 
   validates :username, presence: true, uniqueness: true
 
@@ -32,6 +37,8 @@ class Identity::Member < ActiveRecord::Base
 
   protected
     def build_profile_basic
-      self.profile_basic = Profile::Basic.create
+      self.profile_basic = Profile::Basic.create(
+          github: provider == 'github' ? username : ''
+      )
     end
 end
