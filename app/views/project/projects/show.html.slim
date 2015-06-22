@@ -3,6 +3,7 @@
   .row
     .small-12.columns.text-center
       h2 = @project_project.codename
+      h3: small = "Active since #{@project_project.created_at.strftime('%F')} (#{time_ago_in_words @project_project.created_at} ago)"
   .row
     .small-12.medium-6.medium-centered.columns.text-center
       br
