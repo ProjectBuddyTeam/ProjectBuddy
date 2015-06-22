@@ -14,7 +14,7 @@
         .small-9.columns = f.text_field :codename, autofocus: true, required: true, class: 'restore-radius'
     .small-12.medium-6.medium-centered.columns
       = f.label :tag_list, 'Relevant Tags'
-      = f.text_field :tag_list, value: project.tag_list.join(','), required: true
+      = f.text_field :tag_list, value: project.tag_list.join(','), required: true, placeholder: 'Type of frameworks, languages, tools, platforms, etc.'
     .small-12.medium-6.medium-centered.columns
       = f.label :mission
       = f.text_area :mission, required: true, rows: 15
