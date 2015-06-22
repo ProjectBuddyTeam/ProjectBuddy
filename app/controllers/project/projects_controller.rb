@@ -49,8 +49,8 @@ class Project::ProjectsController < ApplicationController
   # DELETE /projects/1
   def destroy
     authorize @project_project
-    @project_project.destroy
-    respond_with @project_project
+    @project_project.archived!
+    respond_with @project_project, location: profile_my_projects_path
   end
 
   private

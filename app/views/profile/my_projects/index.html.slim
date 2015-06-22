@@ -10,6 +10,10 @@
       = link_to 'New Project', new_project_project_path, class: 'primary radius button'
 
 #projects
+  .row: .small-12.columns.text-center
+    h3
+      i.ss-lightbulbon
+      |  Active Projects
   .row.header-row.show-for-medium-up
     .small-3.columns
       | CODENAME
@@ -17,4 +21,17 @@
       | MISSION
     .small-3.columns.text-right
       | TAGS
-  = render partial: 'profile/my_projects/project', collection: @projects
+  = render partial: 'profile/my_projects/project', collection: @projects.active
+  .row: .small-12.columns.text-center
+    h3
+      i.ss-box
+      |  Archived Projects
+    p Archived projects will be unlisted from searches, but can still viewed with a link
+  .row.header-row.show-for-medium-up
+    .small-3.columns
+      | CODENAME
+    .small-6.columns
+      | MISSION
+    .small-3.columns.text-right
+      | TAGS
+  = render partial: 'profile/my_projects/project', collection: @projects.archived

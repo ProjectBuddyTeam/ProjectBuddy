@@ -3,4 +3,9 @@ class Project::Project < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   delegate :username, :created_at, :id, to: :member, prefix: true
+
+  enum status: {
+           active: 0,
+           archived: 1
+       }
 end
