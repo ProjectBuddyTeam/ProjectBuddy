@@ -7,7 +7,8 @@
     .small-12.medium-6.medium-centered.columns.text-center
       br
       - @project_project.tags.each do |tag|
-        span.radius.splash-label = tag.name
+        a.hvr-grow href=project_projects_path(tags: [tag.name])
+          span.radius.splash-label = tag.name
 
 .row
   .small-12.medium-9.columns

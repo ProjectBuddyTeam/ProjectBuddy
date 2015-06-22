@@ -1,0 +1,13 @@
+- content_for :page_title, 'All Tags'
+- content_for :splash_content do
+  .row: small-12.columns.text-center
+    br
+    br
+    h2: small "Can you build a physical model of this page?"
+    i - Rule of Thumb for UI Design
+
+.row
+  .small-12.medium-8.columns.medium-centered.text-center
+    - @tags.each do |tag|
+      a.hvr-grow href=project_projects_path(tags: [tag.name])
+        span.radius.label = tag.name

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   scope module: :project, as: :project do
-    resources :projects, except: [:index]
+    resources :projects
+    resources :tags
   end
 
   devise_for :members,

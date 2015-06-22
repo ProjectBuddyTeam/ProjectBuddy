@@ -65,18 +65,20 @@ $include-html-classes: false;
       color: $color-white !important;
     }
     background-color: $color-primary-1;
-    .splash-label {
-      margin-right: 2px;
-      margin-left: 2px;
-      @include label(
-      $text-size: 1.2rem,
-      $bg: $color-secondary-2-1,
-      $radius: $radius-regular
-      );
-    }
   }
   .project-creator-contact {
 
+  }
+}
+
+#projects-show, #projects-index {
+  .splash-label {
+    margin: 5px 2px;
+    @include label(
+    $text-size: 1.2rem,
+    $bg: $color-secondary-1-1,
+    $radius: $radius-regular
+    );
   }
 }
 

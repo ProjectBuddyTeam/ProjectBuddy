@@ -1,0 +1,14 @@
+@import "parameters/all";
+$include-html-classes: false;
+@import "foundation/components/labels";
+
+#tags-index {
+  span.radius.label {
+    margin: 5px 2px;
+    @include label(
+    $text-size: 1.2rem,
+    $bg: $color-secondary-1-1,
+    $radius: $radius-regular
+    )
+  }
+}

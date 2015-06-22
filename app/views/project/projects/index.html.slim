@@ -1,1 +1,16 @@
-= render @project_projects
+- content_for :page_title, 'Projects by Tags'
+- content_for :splash_content do
+  .row
+    .small-12.medium-8.medium-centered.columns.text-center
+      br
+      h2
+        i.ss-tag
+        = " #{@filter_tags.count}"
+      - @filter_tags.each do |tag|
+        span.radius.splash-label = tag
+
+.row
+  .small-12.columns
+    ul#projects-dynamic-index.small-block-grid-1.medium-block-grid-3.large-block-grid-5
+      - @project_projects.each do |proj|
+        li = render partial: 'project/projects/project', locals: { project: proj }

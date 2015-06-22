@@ -7,7 +7,8 @@ class Project::ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @project_projects = Project::Project.all
+    @filter_tags = params[:tags]
+    @project_projects = Project::Project.tagged_with(@filter_tags).active
     authorize @project_projects
     respond_with @project_projects
   end
