@@ -1,17 +1,20 @@
 .project-single
   a.hvr-float-shadow href=project_project_path(project)
     .codename-section.row
-      .small-2.medium-12.columns
+      .small-12.columns
         span.attribute> CODENAME:
-      .small-10.medium-12.columns
+      .small-12.columns
         span.value = project.codename
     .mission-section.row
-      .small-2.medium-12.columns
+      .small-12.columns
         span.attribute> MISSION:
-      .small-10.medium-12.columns
+      .small-12.columns
         p.value = project.mission
     .member-section.row
-      .small-2.columns
-        span.attribute> BY:
-      .small-10.columns
-        span.value = project.member_username
+      .small-12.columns
+        span>
+          i.ss-user
+        span.value> = project.member_username
+        span>
+          i.ss-view
+        span.value = project.impressionist_count
