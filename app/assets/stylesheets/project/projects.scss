@@ -31,7 +31,7 @@ $include-html-classes: false;
   .codename-section {
     @include primary-row-style($type: "header");
     span.value {
-      font-size: large;
+      //font-size: large;
     }
   }
   .mission-section {
@@ -46,6 +46,9 @@ $include-html-classes: false;
   }
   .member-section {
     @include primary-row-style($type: "footer");
+    .value {
+      font-size: small;
+    }
   }
 
   .mission-section, .member-section {
