@@ -65,6 +65,19 @@ $include-html-classes: false;
       color: $color-white !important;
     }
     background-color: $color-primary-1;
+    .stats {
+      .stat {
+        margin: 5px auto;
+        .badge {
+          font-size: 200%;
+          display: block;
+        }
+        .value {
+
+        }
+      }
+
+    }
   }
   .project-creator-contact {
 

@@ -8,4 +8,6 @@ class Project::Project < ActiveRecord::Base
            active: 0,
            archived: 1
        }
+
+  is_impressionable
 end

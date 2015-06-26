@@ -3,7 +3,12 @@
   .row
     .small-12.columns.text-center
       h2 = @project_project.codename
-      h3: small = "Active since #{@project_project.created_at.strftime('%F')} (#{time_ago_in_words @project_project.created_at} ago)"
+      h3: small = "Active since #{time_ago_in_words @project_project.created_at} ago"
+  .row
+    .small-12.columns.text-center.stats
+      .stat
+        i.badge.ss-view
+        span.value = "#{pluralize(@project_project.impressionist_count, 'View')}"
   .row
     .small-12.medium-6.medium-centered.columns.text-center
       br
@@ -24,4 +29,4 @@
     hr
     #contact-info
     a#show-contact.small.info.radius.button onclick="PB.projects.show.show_contact(#{@project_project.member_id}, this)"
-      | Show Contact
+      | Request Contact
