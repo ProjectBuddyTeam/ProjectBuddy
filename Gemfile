@@ -30,7 +30,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-brianreavis--selectize.js'
   gem 'rails-assets-Hover'
 end
-
+gem 'meta-tags', '~> 2.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
