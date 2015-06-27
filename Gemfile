@@ -14,6 +14,7 @@ gem 'omniauth-github', '~> 1.1.2'
 gem 'acts-as-taggable-on', '~> 3.5'
 gem 'pundit', '~> 1.0.1'
 gem 'impressionist', '~> 1.5.1'
+gem 'friendly_id', '~> 5.1.0'
 
 # Front-end
 

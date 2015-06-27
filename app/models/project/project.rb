@@ -1,4 +1,6 @@
 class Project::Project < ActiveRecord::Base
+  include FriendlyId
+
   belongs_to :member, class_name: 'Identity::Member', foreign_key: 'identity_member_id'
   acts_as_taggable_on :tags
 
@@ -10,4 +12,12 @@ class Project::Project < ActiveRecord::Base
        }
 
   is_impressionable
+  friendly_id :codename, use: [:slugged]
+
+  def slug_candidates
+    [
+        :codename,
+        [:codename, :member_username]
+    ]
+  end
 end
