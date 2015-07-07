@@ -7,7 +7,9 @@ $(document).on 'page:change', ->
   PB.projects.show = PB.projects.show || new Object()
   PB.projects.form = PB.projects.form || {}
   PB.projects.show.show_contact = (member_id, button) ->
-    $.get('/profile/contacts/' + member_id)
+    $(button).addClass('disabled').text('Loading...');
+    setTimeout(->
+      $.get('/profile/contacts/' + member_id)
       .done (r, status, xhr) ->
         $(button).hide()
         $('#contact-info').html(r)
@@ -16,8 +18,10 @@ $(document).on 'page:change', ->
           $('#contact-info').html(
             '<div data-alert class="alert-box alert radius">' +
               'Please log in to view private contact info.' +
-            '</div>'
+              '</div>'
           )
+    , 400)
+
 
   PB.projects.form.init_tags = (element) ->
     $(element).selectize
