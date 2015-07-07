@@ -11,3 +11,24 @@
     min-height: 240px;
   }
 }
+
+#projects-show, #questions-new, #questions-edit, #answers-edit {
+  #splash-content {
+    h2, p, span, div, a {
+      color: $color-white !important;
+    }
+    background-color: $color-primary-1;
+    .stats {
+      .stat {
+        margin: 5px auto;
+        .badge {
+          font-size: 200%;
+          display: block;
+        }
+        .value {
+
+        }
+      }
+    }
+  }
+}

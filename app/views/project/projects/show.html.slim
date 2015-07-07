@@ -4,28 +4,31 @@
 
 - content_for :page_title, 'Project'
 - content_for :splash_content do
-  .row
-    .small-12.columns.text-center
-      h2 = @project_project.codename
-      h3: small = "Active since #{time_ago_in_words @project_project.created_at} ago"
-  .row
-    .small-12.columns.text-center.stats
-      .stat
-        i.badge.ss-view
-        span.value = "#{pluralize(@project_project.impressionist_count, 'View')}"
-  .row
-    .small-12.medium-6.medium-centered.columns.text-center
-      br
-      - @project_project.tags.each do |tag|
-        a.hvr-grow href=project_projects_path(tags: [tag.name])
-          span.radius.splash-label = tag.name
+  == render partial: 'project/shared/single_project_splash', locals: { project: @project_project }
 
 .row
   .small-12.medium-9.columns
-    h2 Mission
-    p = @project_project.mission
+    #mission
+      h3
+        i.ss-target
+        |  Mission
+      p = @project_project.mission
+    #questions
+      h3
+        i.ss-help
+        |  Questions
+      - if @project_project.questions.empty?
+        p
+          ' No one has asked any questions yet.
+          a href=new_project_question_path(@project_project) Ask Your Question
+      - else
+        - @project_project.questions.each do |q|
+          == render partial: 'project/projects/project_question', locals: { q: q, proj: @project_project }
+        .question
+          strong: a href=new_project_question_path(@project_project) Ask Your Question
+
   .small-12.medium-3.columns
-    h3 Member Profile
+    h3 Creator
     h4: small Username
     b = @project_project.member_username
     h4: small Joined

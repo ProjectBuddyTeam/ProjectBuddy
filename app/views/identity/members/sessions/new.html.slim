@@ -34,7 +34,7 @@
         .small-9.columns = f.password_field :password, class: 'restore-radius', required: true
     .small-12.medium-6.medium-centered.columns.text-center
       - if devise_mapping.rememberable?
-        = f.check_box :remember_me
+        = f.check_box :remember_me, checked: true
         = f.label :remember_me
       br
       = f.submit 'Log in', class: 'radius button'

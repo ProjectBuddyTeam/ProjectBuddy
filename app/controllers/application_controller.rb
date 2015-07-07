@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
     end
 
     def member_not_authorized
-      respond_with current_member, status: :unauthorized, location: request.referrer || root_path
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_path }
+      end
     end
 end

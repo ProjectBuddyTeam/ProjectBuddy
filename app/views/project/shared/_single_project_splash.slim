@@ -1,0 +1,15 @@
+.row
+  .small-12.columns.text-center
+    h2 = project.codename
+    h3: small = "Active since #{time_ago_in_words project.created_at} ago"
+.row
+  .small-12.columns.text-center.stats
+    .stat
+      i.badge.ss-view
+      span.value = "#{pluralize(project.impressionist_count, 'View')}"
+.row
+  .small-12.medium-6.medium-centered.columns.text-center
+    br
+    - project.tags.each do |tag|
+      a.hvr-grow href=project_projects_path(tags: [tag.name])
+        span.radius.splash-label = tag.name

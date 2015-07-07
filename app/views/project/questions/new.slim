@@ -1,0 +1,4 @@
+- content_for :page_title, 'Ask a Question'
+- content_for :splash_content do
+  == render partial: 'project/shared/single_project_splash', locals: { project: @project }
+== render partial: 'form', locals: { question: @project_question, action: 'Ask' }

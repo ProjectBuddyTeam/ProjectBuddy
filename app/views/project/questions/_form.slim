@@ -1,0 +1,17 @@
+= form_for question, url: question.persisted? ? project_question_path(question.project, question) : question do |f|
+  .row: .small-12.medium-6.medium-centered.columns
+    br
+      - if question.errors.any?
+        .radius.alert.alert-box
+          ul
+            - question.errors.full_messages.each do |msg|
+              li = "#{msg}"
+    .row: .small-12.columns
+      = f.label :question
+      = f.text_field :question, autofocus: true, required: true,
+        placeholder: 'ex. "What kind of framework do you plan to use?"'
+    .row: .small-12.columns
+      = f.label :question_body, 'Details'
+      = f.text_area :question_body, required: true, rows: 8
+    .row: .small-12.columns.text-center
+      = f.submit action, class: 'radius button'

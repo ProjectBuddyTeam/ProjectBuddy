@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627215557) do
+ActiveRecord::Schema.define(version: 20150701025603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,19 @@ ActiveRecord::Schema.define(version: 20150627215557) do
   add_index "project_projects", ["identity_member_id"], name: "index_project_projects_on_identity_member_id", using: :btree
   add_index "project_projects", ["slug"], name: "index_project_projects_on_slug", unique: true, using: :btree
 
+  create_table "project_questions", force: :cascade do |t|
+    t.string   "question",                        null: false
+    t.string   "answer"
+    t.integer  "project_project_id"
+    t.integer  "identity_member_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "question_body",      default: "", null: false
+  end
+
+  add_index "project_questions", ["identity_member_id"], name: "index_project_questions_on_identity_member_id", using: :btree
+  add_index "project_questions", ["project_project_id"], name: "index_project_questions_on_project_project_id", using: :btree
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -115,4 +128,6 @@ ActiveRecord::Schema.define(version: 20150627215557) do
 
   add_foreign_key "profile_basics", "identity_members"
   add_foreign_key "project_projects", "identity_members"
+  add_foreign_key "project_questions", "identity_members"
+  add_foreign_key "project_questions", "project_projects"
 end

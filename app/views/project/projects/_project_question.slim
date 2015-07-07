@@ -1,0 +1,16 @@
+.question
+  h5.question-title
+    i.ss-help
+    =< q.question
+  .question-detail
+    span.question-body = q.question_body
+    br
+    span.question-author
+      = " - Asked by #{q.asker_username} #{time_ago_in_words(q.created_at)} ago"
+      ==< project_question_actions(q, proj)
+
+
+  span.answer-body
+    i.ss-font
+    ==< project_question_answer_body q, proj
+    ==< project_question_answer_actions q, proj

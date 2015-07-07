@@ -1,0 +1,23 @@
+- content_for :page_title, 'Edit My Answer'
+- content_for :splash_content do
+  == render partial: 'project/shared/single_project_splash', locals: { project: @project }
+
+= form_for @project_question, url: project_question_answer_path(@project, @project_question) do |f|
+  .row: .small-12.medium-6.medium-centered.columns
+    br
+      - if @project_question.errors.any?
+        .radius.alert.alert-box
+          ul
+            - @project_question.errors.full_messages.each do |msg|
+              li = "#{msg}"
+    .row: .small-12.columns
+      label Question
+      .radius.panel
+        p: strong = @project_question.question
+        p = @project_question.question_body
+
+    .row: .small-12.columns
+      = f.label :answer, 'My Answer'
+      = f.text_area :answer, required: true, rows: 8
+    .row: .small-12.columns.text-center
+      = f.submit 'Save Answer', class: 'radius button'

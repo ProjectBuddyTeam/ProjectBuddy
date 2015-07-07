@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   scope module: :project, as: :project do
     resources :projects
+    resources :questions, path: '/projects/:project_id/questions' do
+      resource :answer, only: [:edit, :update]
+    end
     resources :tags
   end
 

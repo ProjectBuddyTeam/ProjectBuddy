@@ -63,38 +63,29 @@ $include-html-classes: false;
 }
 
 #projects-show {
-  #splash-content {
-    h2, p, span, div, a {
-      color: $color-white !important;
-    }
-    background-color: $color-primary-1;
-    .stats {
-      .stat {
-        margin: 5px auto;
-        .badge {
-          font-size: 200%;
-          display: block;
+  #questions {
+    .question {
+      margin-top: 1rem;
+      .question-title {
+        color: $color-primary-3;
+      }
+      .question-detail {
+        margin-bottom: 0.5rem;
+        .question-body {
+          font-size: 90%;
+          color: #5C5A5A;
         }
-        .value {
-
+        .question-author {
+          
+          font-size: small;
+          color: #6a6868;
         }
       }
-
+      .answer-body {
+        margin-left: 2rem;
+        display: inline-block;
+      }
     }
-  }
-  .project-creator-contact {
-
-  }
-}
-
-#projects-show, #projects-index {
-  .splash-label {
-    margin: 5px 2px;
-    @include label(
-    $text-size: 1.2rem,
-    $bg: $color-secondary-1-1,
-    $radius: $radius-regular
-    );
   }
 }
 

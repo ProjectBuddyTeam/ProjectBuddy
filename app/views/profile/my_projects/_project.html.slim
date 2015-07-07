@@ -5,7 +5,11 @@
     .small-12.medium-1.columns
       .show-for-medium-up = project.impressionist_count
       .show-for-small-only = "#{pluralize(project.impressionist_count, 'View')}"
-    .small-12.medium-5.columns.mission-row-for-small
+    .small-12.medium-1.columns
+      a href=project_questions_path(project)
+        .show-for-medium-up = project.questions.count
+        .show-for-small-only = "#{pluralize(project.questions.count, 'Question')}"
+    .small-12.medium-4.columns.mission-row-for-small
       = project.mission
     .small-12.medium-3.columns.text-right.tags-row-for-small
       = project.tag_list
