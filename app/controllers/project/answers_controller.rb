@@ -10,7 +10,9 @@ class Project::AnswersController < ApplicationController
 
   def update
     authorize @project_question, :update_answer?
-    @project_question.update(question_answer_params)
+    if @project_question.update(question_answer_params)
+      Project::QuestionMailer.new_answer_email(@project_question).deliver_later
+    end
     respond_with @project_question, location: project_project_path(@project)
   end
 

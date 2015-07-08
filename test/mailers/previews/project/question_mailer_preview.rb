@@ -4,4 +4,9 @@ class Project::QuestionMailerPreview < ActionMailer::Preview
     question = Project::Question.offset(rand(Project::Question.count)).first
     Project::QuestionMailer.new_question_email(question)
   end
+
+  def new_answer_email
+    question = Project::Question.offset(rand(Project::Question.count)).first
+    Project::QuestionMailer.new_answer_email(question)
+  end
 end
