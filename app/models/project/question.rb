@@ -3,4 +3,5 @@ class Project::Question < ActiveRecord::Base
   belongs_to :project, class_name: 'Project::Project', foreign_key: 'project_project_id'
 
   delegate :username, to: :member, prefix: :asker
+  delegate :codename, :member, to: :project, prefix: true
 end

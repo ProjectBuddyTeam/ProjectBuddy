@@ -1,0 +1,13 @@
+h3 = "Hi #{@project_owner.username}!"
+
+p
+  = 'ProjectBuddy member '
+  strong = @asker.username
+  = " has a question about #{@question.project_codename}:"
+
+h4 = @question.question
+p = "\"#{@question.question_body}\""
+p
+  a href=@project_url target='_blank' Answer This Question
+
+| - ProjectBuddy Team

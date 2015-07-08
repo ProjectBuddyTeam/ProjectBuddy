@@ -18,6 +18,9 @@ class Project::QuestionsController < ApplicationController
     @project_question.project = @project
     authorize @project_question
     @project_question.save
+    Project::QuestionMailer
+        .new_question_email(@project_question)
+        .deliver_later if @project_question.persisted?
     respond_with @project_question, location: project_project_path(@project)
   end
 
