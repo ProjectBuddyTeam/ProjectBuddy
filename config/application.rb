@@ -28,5 +28,8 @@ module ProjectBuddy
 
     # Tune network timeouts to be a little more lenient
     config.redis = { network_timeout: 5 }
+
+    # Set ActiveJob to use Sidekiq
+    config.active_job.queue_adapter = :sidekiq
   end
 end
