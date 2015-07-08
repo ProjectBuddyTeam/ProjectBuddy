@@ -25,5 +25,8 @@ module ProjectBuddy
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Tune network timeouts to be a little more lenient
+    config.redis = { network_timeout: 5 }
   end
 end
