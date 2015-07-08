@@ -15,6 +15,8 @@ gem 'acts-as-taggable-on', '~> 3.5'
 gem 'pundit', '~> 1.0.1'
 gem 'impressionist', '~> 1.5.1'
 gem 'friendly_id', '~> 5.1.0'
+gem 'sidekiq', '~> 3.4.1'
+gem 'redis'
 
 # Front-end
 
