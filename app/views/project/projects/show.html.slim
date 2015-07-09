@@ -30,7 +30,7 @@
           ' No one has asked any questions yet.
           a href=new_project_question_path(@project_project) Ask Your Question
       - else
-        - @project_project.questions.each do |q|
+        - @project_questions.each do |q|
           == render partial: 'project/projects/project_question', locals: { q: q, proj: @project_project }
         .question
           strong: a href=new_project_question_path(@project_project) Ask Your Question

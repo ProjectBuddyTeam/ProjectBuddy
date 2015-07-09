@@ -16,6 +16,7 @@ class Project::ProjectsController < ApplicationController
   # GET projects/1
   def show
     authorize @project_project
+    @project_questions = Project::Question.where(project: @project_project).includes(:member)
     impressionist @project_project, nil, unique: [:session_hash]
   end
 
