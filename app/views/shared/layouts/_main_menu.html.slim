@@ -14,10 +14,10 @@
           li.has-dropdown
             a href="#" = current_member.username
             ul.dropdown
-              li
-                = link_to 'My Projects', profile_my_projects_path
-              li
-                a href=destroy_member_session_path data-method='delete' Log Out
+              li = link_to 'My Projects', profile_my_projects_path
+              li = link_to 'Settings', edit_member_registration_path
+              li: a href=destroy_member_session_path data-method='delete' Log Out
+
         - else
           li class=active_if_on(new_member_registration_path)
             a href=new_member_registration_path Sign Up
