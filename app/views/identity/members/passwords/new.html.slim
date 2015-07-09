@@ -1,11 +1,21 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
+- content_for :page_title, 'Forgot Password'
+- content_for :splash_content do
+  .row: small-12.columns.text-center
     br
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "identity/members/shared/links"
+    br
+    h2: small "The advantage of a bad memory is that one enjoys several times the same good things for the first time."
+    i - Friedrich Nietzsche
+.row: .small-12.medium-6.medium-centered.columns
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    .row: .small-12.columns
+      br
+      - if resource.errors.any?
+        .radius.alert.alert-box
+          ul
+            - resource.errors.full_messages.each do |msg|
+              li = "#{msg}"
+    .row: .small-12.columns
+      = f.label :email
+      = f.email_field :email, autofocus: true
+    .row: .small-12.columns.text-center
+      = f.submit 'Send Me Reset Instructions', class: 'success radius button'

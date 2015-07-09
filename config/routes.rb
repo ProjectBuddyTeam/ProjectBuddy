@@ -24,6 +24,7 @@ Rails.application.routes.draw do
              controllers: {
                  sessions: 'identity/members/sessions',
                  registrations: 'identity/members/registrations',
+                 passwords: 'identity/members/passwords',
                  omniauth_callbacks: 'identity/members/omniauth_callbacks'
              } do
     get 'logout', :to => 'identity/members/sessions#destroy', :as => :destroy_member_session
