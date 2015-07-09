@@ -20,6 +20,10 @@ html
     = csrf_meta_tags
   body
     == render partial: 'shared/layouts/main_menu', locals: { title: "#{yield(:page_title) if content_for?(:page_title)}" }
+    - if notice
+      p.notice.text-center = notice
+    - if alert
+      p.alert.text-center = alert
     div id=current_container_selector
       #splash-content == yield(:splash_content) if content_for?(:splash_content)
       = yield

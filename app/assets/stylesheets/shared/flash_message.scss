@@ -1,0 +1,17 @@
+@import "parameters/colors";
+
+body {
+  .notice, .alert {
+    padding: 10px;
+    color: #fcfcfc;
+    margin-bottom: 0;
+  }
+
+  .notice {
+    background-color: $color-secondary-3-2;
+  }
+
+  .alert {
+    background-color: $color-secondary-2-var-0;
+  }
+}
