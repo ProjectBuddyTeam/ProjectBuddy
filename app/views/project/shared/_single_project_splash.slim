@@ -4,9 +4,12 @@
     h3: small = "Active since #{time_ago_in_words project.created_at} ago"
 .row
   .small-12.columns.text-center.stats
-    .stat
+    span.stat
       i.badge.ss-view
       span.value = "#{pluralize(project.impressionist_count, 'View')}"
+    span.stat
+      i.badge.ss-help
+      span.value = "#{pluralize(project.questions.count, 'Question')}"
 .row
   .small-12.medium-6.medium-centered.columns.text-center
     br
