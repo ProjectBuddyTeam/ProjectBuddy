@@ -32,6 +32,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-brianreavis--selectize.js'
   gem 'rails-assets-Hover'
 end
+gem 'redcarpet', '~> 3.3.2'
 gem 'meta-tags', '~> 2.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

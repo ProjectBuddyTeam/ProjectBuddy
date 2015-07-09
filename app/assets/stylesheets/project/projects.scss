@@ -87,6 +87,20 @@ $include-html-classes: false;
       }
     }
   }
+  #details {
+    #details-markdown {
+      h1 {
+        font-size: rem-calc(23);
+      }
+      h2 {
+        font-size: rem-calc(18);
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 #projects-edit, #projects-new {

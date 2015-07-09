@@ -13,6 +13,14 @@
         i.ss-target
         |  Mission
       p = @project_project.mission
+    #details
+      h3
+        i.ss-page
+        |  Details
+      #details-markdown
+        == markdown @project_project.details
+      - if @project_project.details.blank?
+        p The creator didn't specify any details, or this project was created before "details" section was added :[
     #questions
       h3
         i.ss-help

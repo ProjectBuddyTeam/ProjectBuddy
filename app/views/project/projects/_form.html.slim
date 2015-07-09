@@ -1,23 +1,27 @@
 = form_for project, url: project do |f|
   .row
-    .small-12.medium-6.medium-centered.columns
+    .small-12.columns
       br
       - if project.errors.any?
         .radius.alert.alert-box
           ul
             - project.errors.full_messages.each do |msg|
               li = "#{msg}"
-  .row
-    .small-12.medium-6.medium-centered.columns
-      .row.collapse.prefix-radius
-        .small-3.columns = f.label :codename, class: 'prefix restore-radius'
-        .small-9.columns = f.text_field :codename, autofocus: true, required: true, class: 'restore-radius'
-    .small-12.medium-6.medium-centered.columns
-      = f.label :tag_list, 'Relevant Tags'
-      = f.text_field :tag_list, value: project.tag_list.join(','), required: true, placeholder: 'Type of frameworks, languages, tools, platforms, etc.'
-    .small-12.medium-6.medium-centered.columns
-      = f.label :mission
-      = f.text_area :mission, required: true, rows: 15
-    .small-12.medium-6.medium-centered.columns.text-center
-      p = "Your email address (#{current_member.email}) will be visible when interested members request for contact."
+
+    .small-12.medium-5.columns
+      .row: .small-12.columns
+        = f.label :codename
+        = f.text_field :codename, autofocus: true, required: true, placeholder: 'ex. ProjectBuddy, State Printer, Audio Visualizer'
+      .row: .small-12.columns
+        = f.label :tag_list, 'Relevant Tags'
+        = f.text_field :tag_list, value: project.tag_list.join(','), required: true, placeholder: 'Type of frameworks, languages, tools, platforms, etc.'
+      .row: .small-12.columns
+        = f.label :mission
+        = f.text_area :mission, required: true, rows: 8, placeholder: "A short paragraph describing what you envision the end result to look like. This is wh\nere you'll attract the attention of other members."
+    .small-12.medium-7.columns
+      .row: .small-12.columns
+        = f.label :details
+        = f.text_area :details, rows: 15, required: true, placeholder: 'Markdown Supported.'
+    .small-12.columns.text-center
+      p = "Your email address (#{current_member.email}) will be shown only to interested members who request for contact."
       = f.submit action, class: 'radius button'

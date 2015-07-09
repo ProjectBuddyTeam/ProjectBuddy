@@ -184,6 +184,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
+    redcarpet (3.3.2)
     redis (3.2.1)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
@@ -262,6 +263,7 @@ DEPENDENCIES
   rails-assets-brianreavis--selectize.js!
   rails-assets-font-awesome!
   rails_12factor
+  redcarpet (~> 3.3.2)
   redis
   responders (~> 2.1.0)
   sass-rails (~> 5.0)
